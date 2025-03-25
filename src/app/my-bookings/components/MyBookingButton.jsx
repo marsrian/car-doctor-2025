@@ -5,7 +5,7 @@ import React from "react";
 const MyBookingButton = ({id}) => {
     const router = useRouter();
     const handleDelete = async (id) => {
-        const response = await fetch(`http://localhost:3000/api/service/${id}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/service/${id}`, {
             method: "DELETE",
         });
         const result = await response.json();

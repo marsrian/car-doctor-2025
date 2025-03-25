@@ -14,7 +14,7 @@ export const GET = async (res) => {
   return NextResponse.json({});
 }
 
-export const POST = async (req, res) => {
+export const POST = async (req) => {
   const body = await req.json();
   const bookingsCollection = dbConnect(collectionNameObj.bookingsCollection);
   const result = await bookingsCollection.insertOne(body);

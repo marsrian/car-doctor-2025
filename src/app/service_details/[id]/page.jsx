@@ -7,7 +7,7 @@ import { FaArrowRight, FaFileAlt } from "react-icons/fa";
 
 const ServiceDetailsPage = async ({ params }) => {
   const p = await params;
-  const res = await fetch(`http://localhost:3000/api/service/${p.id}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/service/${p.id}`);
   const service = await res.json();
 
   return (

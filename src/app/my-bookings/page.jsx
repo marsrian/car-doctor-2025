@@ -3,7 +3,7 @@ import MyAllBookings from "@/components/tables/MyAllBookings";
 import { headers } from "next/headers";
 
 const fetchMyBookings = async () => {
-    const response = await fetch("http://localhost:3000/api/service", {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/service`, {
         headers: new Headers(await headers()),
     });
     const result = await response.json();

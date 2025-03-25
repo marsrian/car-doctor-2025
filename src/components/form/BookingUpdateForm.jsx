@@ -5,7 +5,7 @@ import React from "react";
 import toast from "react-hot-toast";
 
 const BookingUpdateForm = ({ data }) => {
-    const router = useRouter();
+  const router = useRouter();
   const { data: session } = useSession();
   const handleBookService = async (e) => {
     e.preventDefault();
@@ -19,14 +19,17 @@ const BookingUpdateForm = ({ data }) => {
       address,
     };
 
-    const res = await fetch(`http://localhost:3000/api/my-bookings/${data._id}`, {
-      method: "PATCH",
-      body: JSON.stringify(bookingPayload),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/my-bookings/${data._id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(bookingPayload),
+      }
+    );
     const postedResponse = await res.json();
     toast.success("Booking service updated successfully!🎉");
     router.push("/my-bookings");
-    console.log("Updated Data:",postedResponse);
+    console.log("Updated Data:", postedResponse);
   };
 
   return (

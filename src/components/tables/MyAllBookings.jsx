@@ -4,7 +4,6 @@ import MyBookingButton from "@/app/my-bookings/components/MyBookingButton";
 import Link from "next/link";
 
 const MyAllBookings = ({ data }) => {
-  if (!data) return <p>Loading...</p>;
   return (
     <table className="w-full mt-12">
       <thead className="border-b border-stone-200 bg-stone-100 text-sm font-medium text-stone-600">
